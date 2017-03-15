@@ -1,0 +1,323 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="dap3examenModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="dap3examenEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="C__migrationhistory" EntityType="dap3examenModel.C__migrationhistory" />
+    <EntitySet Name="autos" EntityType="dap3examenModel.autos" />
+    <EntitySet Name="compradores" EntityType="dap3examenModel.compradores" />
+    <EntitySet Name="galerias" EntityType="dap3examenModel.galerias" />
+    <EntitySet Name="pagos" EntityType="dap3examenModel.pagos" />
+    <EntitySet Name="permisos" EntityType="dap3examenModel.permisos" />
+    <EntitySet Name="permisosnegadosrol" EntityType="dap3examenModel.permisosnegadosrol" />
+    <EntitySet Name="propietarios" EntityType="dap3examenModel.propietarios" />
+    <EntitySet Name="roles" EntityType="dap3examenModel.roles" />
+    <EntitySet Name="usuarios" EntityType="dap3examenModel.usuarios" />
+    <EntitySet Name="ventas" EntityType="dap3examenModel.ventas" />
+    <AssociationSet Name="galeria_autos" Association="dap3examenModel.galeria_autos">
+      <End Role="autos" EntitySet="autos" />
+      <End Role="galerias" EntitySet="galerias" />
+    </AssociationSet>
+    <AssociationSet Name="pagos_autos" Association="dap3examenModel.pagos_autos">
+      <End Role="autos" EntitySet="autos" />
+      <End Role="pagos" EntitySet="pagos" />
+    </AssociationSet>
+    <AssociationSet Name="propietario_autos" Association="dap3examenModel.propietario_autos">
+      <End Role="propietarios" EntitySet="propietarios" />
+      <End Role="autos" EntitySet="autos" />
+    </AssociationSet>
+    <AssociationSet Name="ventas_autos" Association="dap3examenModel.ventas_autos">
+      <End Role="autos" EntitySet="autos" />
+      <End Role="ventas" EntitySet="ventas" />
+    </AssociationSet>
+    <AssociationSet Name="compradores_ventas" Association="dap3examenModel.compradores_ventas">
+      <End Role="compradores" EntitySet="compradores" />
+      <End Role="ventas" EntitySet="ventas" />
+    </AssociationSet>
+    <AssociationSet Name="propietario_pagos" Association="dap3examenModel.propietario_pagos">
+      <End Role="propietarios" EntitySet="propietarios" />
+      <End Role="pagos" EntitySet="pagos" />
+    </AssociationSet>
+    <AssociationSet Name="Permiso_permisosnegadosrol" Association="dap3examenModel.Permiso_permisosnegadosrol">
+      <End Role="permisos" EntitySet="permisos" />
+      <End Role="permisosnegadosrol" EntitySet="permisosnegadosrol" />
+    </AssociationSet>
+    <AssociationSet Name="PermisoNegadoRol_rol" Association="dap3examenModel.PermisoNegadoRol_rol">
+      <End Role="roles" EntitySet="roles" />
+      <End Role="permisosnegadosrol" EntitySet="permisosnegadosrol" />
+    </AssociationSet>
+    <AssociationSet Name="Rol_usuarios" Association="dap3examenModel.Rol_usuarios">
+      <End Role="roles" EntitySet="roles" />
+      <End Role="usuarios" EntitySet="usuarios" />
+    </AssociationSet>
+    <AssociationSet Name="ventas_usuarios" Association="dap3examenModel.ventas_usuarios">
+      <End Role="usuarios" EntitySet="usuarios" />
+      <End Role="ventas" EntitySet="ventas" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="C__migrationhistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+      <PropertyRef Name="Model" />
+      <PropertyRef Name="ProductVersion" />
+    </Key>
+    <Property Name="MigrationId" Type="String" Nullable="false" MaxLength="150" Unicode="false" FixedLength="false" />
+    <Property Name="ContextKey" Type="String" Nullable="false" MaxLength="300" Unicode="false" FixedLength="false" />
+    <Property Name="Model" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+    <Property Name="ProductVersion" Type="String" Nullable="false" MaxLength="32" Unicode="false" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="autos">
+    <Key>
+      <PropertyRef Name="idauto" />
+    </Key>
+    <Property Name="idauto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="marca" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+    <Property Name="modelo" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+    <Property Name="nserie" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="precio" Type="Double" Nullable="false" />
+    <Property Name="color" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="nacionalidad" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+    <Property Name="Observacion" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="propietarios_idpropietario" Type="Int32" />
+    <NavigationProperty Name="galerias" Relationship="dap3examenModel.galeria_autos" FromRole="autos" ToRole="galerias" />
+    <NavigationProperty Name="pagos" Relationship="dap3examenModel.pagos_autos" FromRole="autos" ToRole="pagos" />
+    <NavigationProperty Name="propietarios" Relationship="dap3examenModel.propietario_autos" FromRole="autos" ToRole="propietarios" />
+    <NavigationProperty Name="ventas" Relationship="dap3examenModel.ventas_autos" FromRole="autos" ToRole="ventas" />
+  </EntityType>
+  <EntityType Name="compradores">
+    <Key>
+      <PropertyRef Name="idcomprador" />
+    </Key>
+    <Property Name="idcomprador" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+    <Property Name="appaterno" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+    <Property Name="apmaterno" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+    <Property Name="Ine" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="calle" Type="String" Nullable="false" MaxLength="40" Unicode="false" FixedLength="false" />
+    <Property Name="colonia" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+    <Property Name="ncasa" Type="String" Nullable="false" MaxLength="8" Unicode="false" FixedLength="false" />
+    <Property Name="avenida" Type="String" Nullable="false" MaxLength="40" Unicode="false" FixedLength="false" />
+    <Property Name="ciudad" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+    <Property Name="pais" Type="String" Nullable="false" MaxLength="40" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="ventas" Relationship="dap3examenModel.compradores_ventas" FromRole="compradores" ToRole="ventas" />
+  </EntityType>
+  <EntityType Name="galerias">
+    <Key>
+      <PropertyRef Name="idgaleria" />
+    </Key>
+    <Property Name="idgaleria" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="fotografia" Type="String" Nullable="false" MaxLength="64" Unicode="false" FixedLength="false" />
+    <Property Name="status" Type="Boolean" Nullable="false" />
+    <Property Name="autos_idauto" Type="Int32" />
+    <NavigationProperty Name="autos" Relationship="dap3examenModel.galeria_autos" FromRole="galerias" ToRole="autos" />
+  </EntityType>
+  <EntityType Name="pagos">
+    <Key>
+      <PropertyRef Name="idpago" />
+    </Key>
+    <Property Name="idpago" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="fecha" Type="DateTime" Nullable="false" />
+    <Property Name="status" Type="Boolean" Nullable="false" />
+    <Property Name="autos_idauto" Type="Int32" />
+    <Property Name="propietarios_idpropietario" Type="Int32" />
+    <NavigationProperty Name="autos" Relationship="dap3examenModel.pagos_autos" FromRole="pagos" ToRole="autos" />
+    <NavigationProperty Name="propietarios" Relationship="dap3examenModel.propietario_pagos" FromRole="pagos" ToRole="propietarios" />
+  </EntityType>
+  <EntityType Name="permisos">
+    <Key>
+      <PropertyRef Name="pkPermiso" />
+    </Key>
+    <Property Name="pkPermiso" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="sModulo" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="sDescripcion" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="permisosnegadosrol" Relationship="dap3examenModel.Permiso_permisosnegadosrol" FromRole="permisos" ToRole="permisosnegadosrol" />
+  </EntityType>
+  <EntityType Name="permisosnegadosrol">
+    <Key>
+      <PropertyRef Name="pkPermisoNegadoRol" />
+    </Key>
+    <Property Name="pkPermisoNegadoRol" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="bStatus" Type="Boolean" Nullable="false" />
+    <Property Name="permiso_pkPermiso" Type="Int32" />
+    <Property Name="rol_pkRol" Type="Int32" />
+    <NavigationProperty Name="permisos" Relationship="dap3examenModel.Permiso_permisosnegadosrol" FromRole="permisosnegadosrol" ToRole="permisos" />
+    <NavigationProperty Name="roles" Relationship="dap3examenModel.PermisoNegadoRol_rol" FromRole="permisosnegadosrol" ToRole="roles" />
+  </EntityType>
+  <EntityType Name="propietarios">
+    <Key>
+      <PropertyRef Name="idpropietario" />
+    </Key>
+    <Property Name="idpropietario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+    <Property Name="appaterno" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+    <Property Name="apmaterno" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+    <Property Name="calle" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="colonia" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="ncasa" Type="String" Nullable="false" MaxLength="4" Unicode="false" FixedLength="false" />
+    <Property Name="avenida" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+    <Property Name="ciudad" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+    <Property Name="pais" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+    <Property Name="telefono" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+    <Property Name="correo" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="ine" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="fotografia" Type="String" Nullable="false" MaxLength="64" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="autos" Relationship="dap3examenModel.propietario_autos" FromRole="propietarios" ToRole="autos" />
+    <NavigationProperty Name="pagos" Relationship="dap3examenModel.propietario_pagos" FromRole="propietarios" ToRole="pagos" />
+  </EntityType>
+  <EntityType Name="roles">
+    <Key>
+      <PropertyRef Name="pkRol" />
+    </Key>
+    <Property Name="pkRol" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="sNombre" Type="String" Nullable="false" MaxLength="1073741823" Unicode="false" FixedLength="false" />
+    <Property Name="bStatus" Type="Boolean" Nullable="false" />
+    <Property Name="sDescripcion" Type="String" MaxLength="1073741823" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="permisosnegadosrol" Relationship="dap3examenModel.PermisoNegadoRol_rol" FromRole="roles" ToRole="permisosnegadosrol" />
+    <NavigationProperty Name="usuarios" Relationship="dap3examenModel.Rol_usuarios" FromRole="roles" ToRole="usuarios" />
+  </EntityType>
+  <EntityType Name="usuarios">
+    <Key>
+      <PropertyRef Name="pkUsuario" />
+    </Key>
+    <Property Name="pkUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="sEmail" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="sPassword" Type="String" Nullable="false" MaxLength="128" Unicode="false" FixedLength="false" />
+    <Property Name="bStatus" Type="Boolean" Nullable="false" />
+    <Property Name="rol_pkRol" Type="Int32" />
+    <NavigationProperty Name="roles" Relationship="dap3examenModel.Rol_usuarios" FromRole="usuarios" ToRole="roles" />
+    <NavigationProperty Name="ventas" Relationship="dap3examenModel.ventas_usuarios" FromRole="usuarios" ToRole="ventas" />
+  </EntityType>
+  <EntityType Name="ventas">
+    <Key>
+      <PropertyRef Name="idventa" />
+    </Key>
+    <Property Name="idventa" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="fecha" Type="DateTime" Nullable="false" />
+    <Property Name="status" Type="Boolean" Nullable="false" />
+    <Property Name="autos_idauto" Type="Int32" />
+    <Property Name="compradores_idcomprador" Type="Int32" />
+    <Property Name="usuarios_pkUsuario" Type="Int32" />
+    <NavigationProperty Name="autos" Relationship="dap3examenModel.ventas_autos" FromRole="ventas" ToRole="autos" />
+    <NavigationProperty Name="compradores" Relationship="dap3examenModel.compradores_ventas" FromRole="ventas" ToRole="compradores" />
+    <NavigationProperty Name="usuarios" Relationship="dap3examenModel.ventas_usuarios" FromRole="ventas" ToRole="usuarios" />
+  </EntityType>
+  <Association Name="galeria_autos">
+    <End Role="autos" Type="dap3examenModel.autos" Multiplicity="0..1" />
+    <End Role="galerias" Type="dap3examenModel.galerias" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="autos">
+        <PropertyRef Name="idauto" />
+      </Principal>
+      <Dependent Role="galerias">
+        <PropertyRef Name="autos_idauto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="pagos_autos">
+    <End Role="autos" Type="dap3examenModel.autos" Multiplicity="0..1" />
+    <End Role="pagos" Type="dap3examenModel.pagos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="autos">
+        <PropertyRef Name="idauto" />
+      </Principal>
+      <Dependent Role="pagos">
+        <PropertyRef Name="autos_idauto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="propietario_autos">
+    <End Role="propietarios" Type="dap3examenModel.propietarios" Multiplicity="0..1" />
+    <End Role="autos" Type="dap3examenModel.autos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="propietarios">
+        <PropertyRef Name="idpropietario" />
+      </Principal>
+      <Dependent Role="autos">
+        <PropertyRef Name="propietarios_idpropietario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ventas_autos">
+    <End Role="autos" Type="dap3examenModel.autos" Multiplicity="0..1" />
+    <End Role="ventas" Type="dap3examenModel.ventas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="autos">
+        <PropertyRef Name="idauto" />
+      </Principal>
+      <Dependent Role="ventas">
+        <PropertyRef Name="autos_idauto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="compradores_ventas">
+    <End Role="compradores" Type="dap3examenModel.compradores" Multiplicity="0..1" />
+    <End Role="ventas" Type="dap3examenModel.ventas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="compradores">
+        <PropertyRef Name="idcomprador" />
+      </Principal>
+      <Dependent Role="ventas">
+        <PropertyRef Name="compradores_idcomprador" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="propietario_pagos">
+    <End Role="propietarios" Type="dap3examenModel.propietarios" Multiplicity="0..1" />
+    <End Role="pagos" Type="dap3examenModel.pagos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="propietarios">
+        <PropertyRef Name="idpropietario" />
+      </Principal>
+      <Dependent Role="pagos">
+        <PropertyRef Name="propietarios_idpropietario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Permiso_permisosnegadosrol">
+    <End Role="permisos" Type="dap3examenModel.permisos" Multiplicity="0..1" />
+    <End Role="permisosnegadosrol" Type="dap3examenModel.permisosnegadosrol" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="permisos">
+        <PropertyRef Name="pkPermiso" />
+      </Principal>
+      <Dependent Role="permisosnegadosrol">
+        <PropertyRef Name="permiso_pkPermiso" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PermisoNegadoRol_rol">
+    <End Role="roles" Type="dap3examenModel.roles" Multiplicity="0..1" />
+    <End Role="permisosnegadosrol" Type="dap3examenModel.permisosnegadosrol" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="roles">
+        <PropertyRef Name="pkRol" />
+      </Principal>
+      <Dependent Role="permisosnegadosrol">
+        <PropertyRef Name="rol_pkRol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Rol_usuarios">
+    <End Role="roles" Type="dap3examenModel.roles" Multiplicity="0..1" />
+    <End Role="usuarios" Type="dap3examenModel.usuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="roles">
+        <PropertyRef Name="pkRol" />
+      </Principal>
+      <Dependent Role="usuarios">
+        <PropertyRef Name="rol_pkRol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ventas_usuarios">
+    <End Role="usuarios" Type="dap3examenModel.usuarios" Multiplicity="0..1" />
+    <End Role="ventas" Type="dap3examenModel.ventas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuarios">
+        <PropertyRef Name="pkUsuario" />
+      </Principal>
+      <Dependent Role="ventas">
+        <PropertyRef Name="usuarios_pkUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="dap3examenModelStoreContainer" CdmEntityContainer="dap3examenEntities1">
+    <EntitySetMapping Name="C__migrationhistory">
+      <EntityTypeMapping TypeName="dap3examenModel.C__migrationhistory">
+        <MappingFragment StoreEntitySet="__migrationhistory">
+          <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+          <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="autos">
+      <EntityTypeMapping TypeName="dap3examenModel.autos">
+        <MappingFragment StoreEntitySet="autos">
+          <ScalarProperty Name="idauto" ColumnName="idauto" />
+          <ScalarProperty Name="marca" ColumnName="marca" />
+          <ScalarProperty Name="modelo" ColumnName="modelo" />
+          <ScalarProperty Name="nserie" ColumnName="nserie" />
+          <ScalarProperty Name="precio" ColumnName="precio" />
+          <ScalarProperty Name="color" ColumnName="color" />
+          <ScalarProperty Name="nacionalidad" ColumnName="nacionalidad" />
+          <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+          <ScalarProperty Name="propietarios_idpropietario" ColumnName="propietarios_idpropietario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="compradores">
+      <EntityTypeMapping TypeName="dap3examenModel.compradores">
+        <MappingFragment StoreEntitySet="compradores">
+          <ScalarProperty Name="idcomprador" ColumnName="idcomprador" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="appaterno" ColumnName="appaterno" />
+          <ScalarProperty Name="apmaterno" ColumnName="apmaterno" />
+          <ScalarProperty Name="Ine" ColumnName="Ine" />
+          <ScalarProperty Name="calle" ColumnName="calle" />
+          <ScalarProperty Name="colonia" ColumnName="colonia" />
+          <ScalarProperty Name="ncasa" ColumnName="ncasa" />
+          <ScalarProperty Name="avenida" ColumnName="avenida" />
+          <ScalarProperty Name="ciudad" ColumnName="ciudad" />
+          <ScalarProperty Name="pais" ColumnName="pais" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="galerias">
+      <EntityTypeMapping TypeName="dap3examenModel.galerias">
+        <MappingFragment StoreEntitySet="galerias">
+          <ScalarProperty Name="idgaleria" ColumnName="idgaleria" />
+          <ScalarProperty Name="fotografia" ColumnName="fotografia" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="autos_idauto" ColumnName="autos_idauto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pagos">
+      <EntityTypeMapping TypeName="dap3examenModel.pagos">
+        <MappingFragment StoreEntitySet="pagos">
+          <ScalarProperty Name="idpago" ColumnName="idpago" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="autos_idauto" ColumnName="autos_idauto" />
+          <ScalarProperty Name="propietarios_idpropietario" ColumnName="propietarios_idpropietario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="permisos">
+      <EntityTypeMapping TypeName="dap3examenModel.permisos">
+        <MappingFragment StoreEntitySet="permisos">
+          <ScalarProperty Name="pkPermiso" ColumnName="pkPermiso" />
+          <ScalarProperty Name="sModulo" ColumnName="sModulo" />
+          <ScalarProperty Name="sDescripcion" ColumnName="sDescripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="permisosnegadosrol">
+      <EntityTypeMapping TypeName="dap3examenModel.permisosnegadosrol">
+        <MappingFragment StoreEntitySet="permisosnegadosrol">
+          <ScalarProperty Name="pkPermisoNegadoRol" ColumnName="pkPermisoNegadoRol" />
+          <ScalarProperty Name="bStatus" ColumnName="bStatus" />
+          <ScalarProperty Name="permiso_pkPermiso" ColumnName="permiso_pkPermiso" />
+          <ScalarProperty Name="rol_pkRol" ColumnName="rol_pkRol" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="propietarios">
+      <EntityTypeMapping TypeName="dap3examenModel.propietarios">
+        <MappingFragment StoreEntitySet="propietarios">
+          <ScalarProperty Name="idpropietario" ColumnName="idpropietario" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="appaterno" ColumnName="appaterno" />
+          <ScalarProperty Name="apmaterno" ColumnName="apmaterno" />
+          <ScalarProperty Name="calle" ColumnName="calle" />
+          <ScalarProperty Name="colonia" ColumnName="colonia" />
+          <ScalarProperty Name="ncasa" ColumnName="ncasa" />
+          <ScalarProperty Name="avenida" ColumnName="avenida" />
+          <ScalarProperty Name="ciudad" ColumnName="ciudad" />
+          <ScalarProperty Name="pais" ColumnName="pais" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="correo" ColumnName="correo" />
+          <ScalarProperty Name="ine" ColumnName="ine" />
+          <ScalarProperty Name="fotografia" ColumnName="fotografia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="roles">
+      <EntityTypeMapping TypeName="dap3examenModel.roles">
+        <MappingFragment StoreEntitySet="roles">
+          <ScalarProperty Name="pkRol" ColumnName="pkRol" />
+          <ScalarProperty Name="sNombre" ColumnName="sNombre" />
+          <ScalarProperty Name="bStatus" ColumnName="bStatus" />
+          <ScalarProperty Name="sDescripcion" ColumnName="sDescripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="usuarios">
+      <EntityTypeMapping TypeName="dap3examenModel.usuarios">
+        <MappingFragment StoreEntitySet="usuarios">
+          <ScalarProperty Name="pkUsuario" ColumnName="pkUsuario" />
+          <ScalarProperty Name="sEmail" ColumnName="sEmail" />
+          <ScalarProperty Name="sPassword" ColumnName="sPassword" />
+          <ScalarProperty Name="bStatus" ColumnName="bStatus" />
+          <ScalarProperty Name="rol_pkRol" ColumnName="rol_pkRol" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ventas">
+      <EntityTypeMapping TypeName="dap3examenModel.ventas">
+        <MappingFragment StoreEntitySet="ventas">
+          <ScalarProperty Name="idventa" ColumnName="idventa" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="autos_idauto" ColumnName="autos_idauto" />
+          <ScalarProperty Name="compradores_idcomprador" ColumnName="compradores_idcomprador" />
+          <ScalarProperty Name="usuarios_pkUsuario" ColumnName="usuarios_pkUsuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

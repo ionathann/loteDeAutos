@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9CE40C6B-CDF6-43A9-AD5A-7C005DFAFFCE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DataAccess</RootNamespace>
+    <AssemblyName>DataAccess</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net40\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net40\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.6.9.9\lib\net40\MySql.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MySql.Data.Entity.EF6, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.Entity.6.9.9\lib\net40\MySql.Data.Entity.EF6.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WebCam_Capture">
+      <HintPath>..\..\..\..\..\Downloads\EntityFrameworLoteAutos-master\EntityFrameworLoteAutos-master\LoteAutosGit\WebCam_Capture\WebCam_Capture.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Context\DtContext.cs" />
+    <Compile Include="Data\autos.cs" />
+    <Compile Include="Data\Clientes.cs" />
+    <Compile Include="Data\Permiso.cs" />
+    <Compile Include="Data\PermisoNegadoRol.cs" />
+    <Compile Include="Data\propietarios.cs" />
+    <Compile Include="Data\Registros.cs" />
+    <Compile Include="Data\Rol.cs" />
+    <Compile Include="Data\Usuario.cs" />
+    <Compile Include="Data\ventas.cs" />
+    <Compile Include="Metodos\CsAuto.cs" />
+    <Compile Include="Metodos\CsHerramientas.cs" />
+    <Compile Include="Metodos\CsPropietario.cs" />
+    <Compile Include="Metodos\CsRegistros.cs" />
+    <Compile Include="Metodos\CsUsuarios.cs" />
+    <Compile Include="Metodos\CsVenta.cs" />
+    <Compile Include="Metodos\ManejoSesion.cs" />
+    <Compile Include="Metodos\CsClientes.cs" />
+    <Compile Include="Migrations\201703131923193_InitialCreate.cs" />
+    <Compile Include="Migrations\201703131923193_InitialCreate.Designer.cs">
+      <DependentUpon>201703131923193_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703131926259_Accesos.cs" />
+    <Compile Include="Migrations\201703131926259_Accesos.Designer.cs">
+      <DependentUpon>201703131926259_Accesos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Metodos\Resources\add_male_user_256.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Metodos\Resources\fondobueno.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Metodos\Resources\iconload.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Metodos\Resources\iconnew.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Metodos\Resources\Icono_encuesta.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Metodos\Resources\Oxygen-Icons.org-Oxygen-Actions-application-exit.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Metodos\Resources\perfilfoto.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201703131923193_InitialCreate.resx">
+      <DependentUpon>201703131923193_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703131926259_Accesos.resx">
+      <DependentUpon>201703131926259_Accesos.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

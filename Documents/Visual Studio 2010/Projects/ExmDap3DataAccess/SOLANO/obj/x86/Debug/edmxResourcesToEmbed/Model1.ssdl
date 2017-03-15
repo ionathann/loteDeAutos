@@ -1,0 +1,313 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="dap3examenModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="dap3examenModelStoreContainer">
+    <EntitySet Name="__migrationhistory" EntityType="dap3examenModel.Store.__migrationhistory" store:Type="Tables" store:Schema="dap3examen" store:Name="__migrationhistory">
+      <DefiningQuery>SELECT
+      `__migrationhistory`.`MigrationId`, 
+      `__migrationhistory`.`ContextKey`, 
+      `__migrationhistory`.`Model`, 
+      `__migrationhistory`.`ProductVersion`
+      FROM `__migrationhistory` AS `__migrationhistory`</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="autos" EntityType="dap3examenModel.Store.autos" store:Type="Tables" Schema="dap3examen" />
+    <EntitySet Name="compradores" EntityType="dap3examenModel.Store.compradores" store:Type="Tables" Schema="dap3examen" />
+    <EntitySet Name="galerias" EntityType="dap3examenModel.Store.galerias" store:Type="Tables" Schema="dap3examen" />
+    <EntitySet Name="pagos" EntityType="dap3examenModel.Store.pagos" store:Type="Tables" Schema="dap3examen" />
+    <EntitySet Name="permisos" EntityType="dap3examenModel.Store.permisos" store:Type="Tables" Schema="dap3examen" />
+    <EntitySet Name="permisosnegadosrol" EntityType="dap3examenModel.Store.permisosnegadosrol" store:Type="Tables" Schema="dap3examen" />
+    <EntitySet Name="propietarios" EntityType="dap3examenModel.Store.propietarios" store:Type="Tables" Schema="dap3examen" />
+    <EntitySet Name="roles" EntityType="dap3examenModel.Store.roles" store:Type="Tables" Schema="dap3examen" />
+    <EntitySet Name="usuarios" EntityType="dap3examenModel.Store.usuarios" store:Type="Tables" Schema="dap3examen" />
+    <EntitySet Name="ventas" EntityType="dap3examenModel.Store.ventas" store:Type="Tables" Schema="dap3examen" />
+    <AssociationSet Name="compradores_ventas" Association="dap3examenModel.Store.compradores_ventas">
+      <End Role="compradores" EntitySet="compradores" />
+      <End Role="ventas" EntitySet="ventas" />
+    </AssociationSet>
+    <AssociationSet Name="galeria_autos" Association="dap3examenModel.Store.galeria_autos">
+      <End Role="autos" EntitySet="autos" />
+      <End Role="galerias" EntitySet="galerias" />
+    </AssociationSet>
+    <AssociationSet Name="pagos_autos" Association="dap3examenModel.Store.pagos_autos">
+      <End Role="autos" EntitySet="autos" />
+      <End Role="pagos" EntitySet="pagos" />
+    </AssociationSet>
+    <AssociationSet Name="Permiso_permisosnegadosrol" Association="dap3examenModel.Store.Permiso_permisosnegadosrol">
+      <End Role="permisos" EntitySet="permisos" />
+      <End Role="permisosnegadosrol" EntitySet="permisosnegadosrol" />
+    </AssociationSet>
+    <AssociationSet Name="PermisoNegadoRol_rol" Association="dap3examenModel.Store.PermisoNegadoRol_rol">
+      <End Role="roles" EntitySet="roles" />
+      <End Role="permisosnegadosrol" EntitySet="permisosnegadosrol" />
+    </AssociationSet>
+    <AssociationSet Name="propietario_autos" Association="dap3examenModel.Store.propietario_autos">
+      <End Role="propietarios" EntitySet="propietarios" />
+      <End Role="autos" EntitySet="autos" />
+    </AssociationSet>
+    <AssociationSet Name="propietario_pagos" Association="dap3examenModel.Store.propietario_pagos">
+      <End Role="propietarios" EntitySet="propietarios" />
+      <End Role="pagos" EntitySet="pagos" />
+    </AssociationSet>
+    <AssociationSet Name="Rol_usuarios" Association="dap3examenModel.Store.Rol_usuarios">
+      <End Role="roles" EntitySet="roles" />
+      <End Role="usuarios" EntitySet="usuarios" />
+    </AssociationSet>
+    <AssociationSet Name="ventas_autos" Association="dap3examenModel.Store.ventas_autos">
+      <End Role="autos" EntitySet="autos" />
+      <End Role="ventas" EntitySet="ventas" />
+    </AssociationSet>
+    <AssociationSet Name="ventas_usuarios" Association="dap3examenModel.Store.ventas_usuarios">
+      <End Role="usuarios" EntitySet="usuarios" />
+      <End Role="ventas" EntitySet="ventas" />
+    </AssociationSet>
+  </EntityContainer>
+  <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'def.dap3examen.__migrationhistory' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+  <EntityType Name="__migrationhistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+      <PropertyRef Name="Model" />
+      <PropertyRef Name="ProductVersion" />
+    </Key>
+    <Property Name="MigrationId" Type="varchar" Nullable="false" MaxLength="150" />
+    <Property Name="ContextKey" Type="varchar" Nullable="false" MaxLength="300" />
+    <Property Name="Model" Type="longblob" Nullable="false" />
+    <Property Name="ProductVersion" Type="varchar" Nullable="false" MaxLength="32" />
+  </EntityType>
+  <EntityType Name="autos">
+    <Key>
+      <PropertyRef Name="idauto" />
+    </Key>
+    <Property Name="idauto" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="marca" Type="varchar" Nullable="false" MaxLength="30" />
+    <Property Name="modelo" Type="varchar" Nullable="false" MaxLength="30" />
+    <Property Name="nserie" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="precio" Type="double" Nullable="false" />
+    <Property Name="color" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="nacionalidad" Type="varchar" Nullable="false" MaxLength="30" />
+    <Property Name="Observacion" Type="varchar" MaxLength="100" />
+    <Property Name="propietarios_idpropietario" Type="int" />
+  </EntityType>
+  <EntityType Name="compradores">
+    <Key>
+      <PropertyRef Name="idcomprador" />
+    </Key>
+    <Property Name="idcomprador" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="varchar" Nullable="false" MaxLength="30" />
+    <Property Name="appaterno" Type="varchar" Nullable="false" MaxLength="30" />
+    <Property Name="apmaterno" Type="varchar" Nullable="false" MaxLength="30" />
+    <Property Name="Ine" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="calle" Type="varchar" Nullable="false" MaxLength="40" />
+    <Property Name="colonia" Type="varchar" Nullable="false" MaxLength="30" />
+    <Property Name="ncasa" Type="varchar" Nullable="false" MaxLength="8" />
+    <Property Name="avenida" Type="varchar" Nullable="false" MaxLength="40" />
+    <Property Name="ciudad" Type="varchar" Nullable="false" MaxLength="30" />
+    <Property Name="pais" Type="varchar" Nullable="false" MaxLength="40" />
+  </EntityType>
+  <EntityType Name="galerias">
+    <Key>
+      <PropertyRef Name="idgaleria" />
+    </Key>
+    <Property Name="idgaleria" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="fotografia" Type="varchar" Nullable="false" MaxLength="64" />
+    <Property Name="status" Type="bool" Nullable="false" />
+    <Property Name="autos_idauto" Type="int" />
+  </EntityType>
+  <EntityType Name="pagos">
+    <Key>
+      <PropertyRef Name="idpago" />
+    </Key>
+    <Property Name="idpago" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="fecha" Type="datetime" Nullable="false" />
+    <Property Name="status" Type="bool" Nullable="false" />
+    <Property Name="autos_idauto" Type="int" />
+    <Property Name="propietarios_idpropietario" Type="int" />
+  </EntityType>
+  <EntityType Name="permisos">
+    <Key>
+      <PropertyRef Name="pkPermiso" />
+    </Key>
+    <Property Name="pkPermiso" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="sModulo" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="sDescripcion" Type="varchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="permisosnegadosrol">
+    <Key>
+      <PropertyRef Name="pkPermisoNegadoRol" />
+    </Key>
+    <Property Name="pkPermisoNegadoRol" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="bStatus" Type="bool" Nullable="false" />
+    <Property Name="permiso_pkPermiso" Type="int" />
+    <Property Name="rol_pkRol" Type="int" />
+  </EntityType>
+  <EntityType Name="propietarios">
+    <Key>
+      <PropertyRef Name="idpropietario" />
+    </Key>
+    <Property Name="idpropietario" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="varchar" Nullable="false" MaxLength="30" />
+    <Property Name="appaterno" Type="varchar" Nullable="false" MaxLength="30" />
+    <Property Name="apmaterno" Type="varchar" Nullable="false" MaxLength="30" />
+    <Property Name="calle" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="colonia" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="ncasa" Type="varchar" Nullable="false" MaxLength="4" />
+    <Property Name="avenida" Type="varchar" Nullable="false" MaxLength="30" />
+    <Property Name="ciudad" Type="varchar" Nullable="false" MaxLength="30" />
+    <Property Name="pais" Type="varchar" Nullable="false" MaxLength="30" />
+    <Property Name="telefono" Type="varchar" Nullable="false" MaxLength="30" />
+    <Property Name="correo" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="ine" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="fotografia" Type="varchar" Nullable="false" MaxLength="64" />
+  </EntityType>
+  <EntityType Name="roles">
+    <Key>
+      <PropertyRef Name="pkRol" />
+    </Key>
+    <Property Name="pkRol" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="sNombre" Type="longtext" Nullable="false" />
+    <Property Name="bStatus" Type="bool" Nullable="false" />
+    <Property Name="sDescripcion" Type="longtext" />
+  </EntityType>
+  <EntityType Name="usuarios">
+    <Key>
+      <PropertyRef Name="pkUsuario" />
+    </Key>
+    <Property Name="pkUsuario" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="sEmail" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="sPassword" Type="varchar" Nullable="false" MaxLength="128" />
+    <Property Name="bStatus" Type="bool" Nullable="false" />
+    <Property Name="rol_pkRol" Type="int" />
+  </EntityType>
+  <EntityType Name="ventas">
+    <Key>
+      <PropertyRef Name="idventa" />
+    </Key>
+    <Property Name="idventa" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="fecha" Type="datetime" Nullable="false" />
+    <Property Name="status" Type="bool" Nullable="false" />
+    <Property Name="autos_idauto" Type="int" />
+    <Property Name="compradores_idcomprador" Type="int" />
+    <Property Name="usuarios_pkUsuario" Type="int" />
+  </EntityType>
+  <Association Name="compradores_ventas">
+    <End Role="compradores" Type="dap3examenModel.Store.compradores" Multiplicity="0..1" />
+    <End Role="ventas" Type="dap3examenModel.Store.ventas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="compradores">
+        <PropertyRef Name="idcomprador" />
+      </Principal>
+      <Dependent Role="ventas">
+        <PropertyRef Name="compradores_idcomprador" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="galeria_autos">
+    <End Role="autos" Type="dap3examenModel.Store.autos" Multiplicity="0..1" />
+    <End Role="galerias" Type="dap3examenModel.Store.galerias" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="autos">
+        <PropertyRef Name="idauto" />
+      </Principal>
+      <Dependent Role="galerias">
+        <PropertyRef Name="autos_idauto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="pagos_autos">
+    <End Role="autos" Type="dap3examenModel.Store.autos" Multiplicity="0..1" />
+    <End Role="pagos" Type="dap3examenModel.Store.pagos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="autos">
+        <PropertyRef Name="idauto" />
+      </Principal>
+      <Dependent Role="pagos">
+        <PropertyRef Name="autos_idauto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Permiso_permisosnegadosrol">
+    <End Role="permisos" Type="dap3examenModel.Store.permisos" Multiplicity="0..1" />
+    <End Role="permisosnegadosrol" Type="dap3examenModel.Store.permisosnegadosrol" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="permisos">
+        <PropertyRef Name="pkPermiso" />
+      </Principal>
+      <Dependent Role="permisosnegadosrol">
+        <PropertyRef Name="permiso_pkPermiso" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PermisoNegadoRol_rol">
+    <End Role="roles" Type="dap3examenModel.Store.roles" Multiplicity="0..1" />
+    <End Role="permisosnegadosrol" Type="dap3examenModel.Store.permisosnegadosrol" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="roles">
+        <PropertyRef Name="pkRol" />
+      </Principal>
+      <Dependent Role="permisosnegadosrol">
+        <PropertyRef Name="rol_pkRol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="propietario_autos">
+    <End Role="propietarios" Type="dap3examenModel.Store.propietarios" Multiplicity="0..1" />
+    <End Role="autos" Type="dap3examenModel.Store.autos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="propietarios">
+        <PropertyRef Name="idpropietario" />
+      </Principal>
+      <Dependent Role="autos">
+        <PropertyRef Name="propietarios_idpropietario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="propietario_pagos">
+    <End Role="propietarios" Type="dap3examenModel.Store.propietarios" Multiplicity="0..1" />
+    <End Role="pagos" Type="dap3examenModel.Store.pagos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="propietarios">
+        <PropertyRef Name="idpropietario" />
+      </Principal>
+      <Dependent Role="pagos">
+        <PropertyRef Name="propietarios_idpropietario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Rol_usuarios">
+    <End Role="roles" Type="dap3examenModel.Store.roles" Multiplicity="0..1" />
+    <End Role="usuarios" Type="dap3examenModel.Store.usuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="roles">
+        <PropertyRef Name="pkRol" />
+      </Principal>
+      <Dependent Role="usuarios">
+        <PropertyRef Name="rol_pkRol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ventas_autos">
+    <End Role="autos" Type="dap3examenModel.Store.autos" Multiplicity="0..1" />
+    <End Role="ventas" Type="dap3examenModel.Store.ventas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="autos">
+        <PropertyRef Name="idauto" />
+      </Principal>
+      <Dependent Role="ventas">
+        <PropertyRef Name="autos_idauto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ventas_usuarios">
+    <End Role="usuarios" Type="dap3examenModel.Store.usuarios" Multiplicity="0..1" />
+    <End Role="ventas" Type="dap3examenModel.Store.ventas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuarios">
+        <PropertyRef Name="pkUsuario" />
+      </Principal>
+      <Dependent Role="ventas">
+        <PropertyRef Name="usuarios_pkUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
